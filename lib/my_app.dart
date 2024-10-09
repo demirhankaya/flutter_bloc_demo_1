@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_bloc_demo_1/presentation/blocs/counter_cubit.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'core/core.dart';
@@ -8,15 +10,22 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: appRouter,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => CounterCubit(),
+        )
+      ],
+      child: MaterialApp.router(
+        routerConfig: appRouter,
 
-      /// [L10n]
-      /// Delegate: Temsilci Listesi
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
+        /// [L10n]
+        /// Delegate: Temsilci Listesi
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
 
-      /// Desteklenen Diller
-      supportedLocales: AppLocalizations.supportedLocales,
+        /// Desteklenen Diller
+        supportedLocales: AppLocalizations.supportedLocales,
+      ),
     );
   }
 }
