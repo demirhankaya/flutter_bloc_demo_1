@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_bloc_demo_1/presentation/blocs/counter_cubit.dart';
+import 'package:flutter_bloc_demo_1/presentation/cubits/colors_cubit.dart';
+import 'package:flutter_bloc_demo_1/presentation/cubits/counter_cubit.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'core/core.dart';
@@ -14,6 +15,9 @@ class MainApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => CounterCubit(),
+        ),
+        BlocProvider(
+          create: (context) => ColorsCubit(),
         )
       ],
       child: MaterialApp.router(
