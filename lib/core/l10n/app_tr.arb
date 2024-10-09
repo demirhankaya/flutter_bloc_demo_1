@@ -2,5 +2,16 @@
     "helloWorld":"Merhaba Dünya!",
     "@helloWorld": {
         "description": "Merhaba Dünya yazısıdır."
+    },
+
+    "counterValue": "Sayaç: {value}",
+    "@counterValue": {
+        "description": "Sayaç değerini gösterir.",
+        "placeholders": {
+            "value": {
+                "type": "int",
+                "example": "0"
+            }
+        }
     }
 }
